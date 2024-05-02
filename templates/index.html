@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体調管理アプリ</title>
+</head>
+<body>
+    <h1>体調管理アプリ</h1>
+    <div id="calendar"></div>
+
+    <!-- FullCalendarのライブラリ -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js"></script>
+    <!-- Custom JavaScriptファイル -->
+    <script src="/static/js/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var entries = {{ entries|tojson|safe }};
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: entries,
+            dateClick: function(info) {
+                window.location.href = `/entry?date=${info.dateStr}`;
+            }
+        });
+        calendar.render();
+    });
+    </script>
+</body>
+</html>

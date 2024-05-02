@@ -1,0 +1,20 @@
+<!-- entry.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体調記入</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/entry_style.css"> <!-- 追加 -->
+</head>
+<body>
+    <h1>体調記入</h1>
+    <form action="/entry" method="POST">
+        <input type="date" name="date" value="{{ date }}" required>
+        <textarea name="health_note" placeholder="体調を記入してください" required>{{ entry.health_note if entry else '' }}</textarea>
+        <button type="submit">保存</button>
+        <button type="button" onclick="window.location.href='/'">戻る</button>
+    </form>
+</body>
+</html>
