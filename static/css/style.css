@@ -1,5 +1,13 @@
 /* style.css */
-
+.fc-direction-ltr .fc-toolbar>*>:not(:first-child) {
+    display: none;
+}
+.fc .fc-button-group .fc-dayGridMonth-button .fc-timeGridWeek-button .fc-timeGridDay-button{
+    display: none;
+} 
+.fc .fc-button-group.fc-dayGridMonth-button .fc-button .fc-button-primary .fc-button-active{
+    display: none;
+}
 /* デスクトップ用スタイル */
 h1 {
     text-align: center;
