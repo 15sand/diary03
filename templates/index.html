@@ -20,6 +20,12 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             events: entries,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            locale: 'ja', // 日本語ロケールを指定
             dateClick: function(info) {
                 window.location.href = `/entry?date=${info.dateStr}`;
             }
